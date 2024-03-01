@@ -35,7 +35,7 @@ const displayPhones = (phones, isShowAll) => {
     phoneCard.classList = `bg-white rounded-lg border-[1px] border-[#CFCFCF] p-6 mx- h-[633px] w-[364px]`;
     //* 3: set inner html
     phoneCard.innerHTML = `
-    <div class="flex items-center justify-center bg-[#0D6EFD0D] rounded-lg h-[300px] w-[314px] p-4"><img src="${phone.image}" alt="Shoes" />
+    <div class="flex items-center justify-center bg-[#0D6EFD0D] rounded-lg h-[300px] w-[314px] p-4"><img src="${phone.image}" alt="Phones" />
     </div>
     <div class="flex flex-col items-center">
         <h2 class="text-[#403F3F] text-xl font-bold mt-6 mb-5">${phone.phone_name}</h2>
