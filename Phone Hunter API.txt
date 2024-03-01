@@ -1,0 +1,39 @@
+**** step 1.... home page load ====== 
+
+[[[[[[...loadPhone('m'); --> loadPhone = async (searchText='m', isShowAll=false)-->  displayPhones(phones, isShowAll=false);...]]]]]]
+
+
+-> async-loadpPhone takes data from API using searchText='m' and sends phones and isShowAll=false to displayPhones(phones, isShowAll=false)
+
+-> displayPhones will use phones and run forEach loop and slice 12 phone and show them and (for isShowAll=false) show the SHOW-ALL-BUTTON....... (if phones are not more than 12 SHOW-ALL-BUTTON will be hidden)
+
+
+------------------------------------------------------------------------------------------------------------
+
+**** step 2.... click search button ====== 
+
+[[[[[[...handleSearch() -->loadPhone(searchText, isShowAll=false); --> loadPhone = async (searchText, isShowAll=false)-->  displayPhones(phones, isShowAll=false);...]]]]]]
+
+
+-> handleSearch() takes searchText=value from input and calls 
+loadPhone(searchText, isShowAll=false)
+
+-> async-loadpPhone takes data from API using searchText=value and sends phones and isShowAll=false to displayPhones(phones, isShowAll=false)
+
+->displayPhones will use phones and run forEach loop and slice 12 phone and show them and (for isShowAll=false) show the SHOW-ALL-BUTTON....... (if phones are not more than 12 SHOW-ALL-BUTTON will be hidden)
+
+------------------------------------------------------------------------------------------------
+
+**** step 3.... click show-all button ====== 
+
+[[[[[[...handleShowAll() callbacks handleSearch(true); --> handleSearch = (isShowAll=true) -->  loadPhone(searchText, isShowAll=true)-->  displayPhones(phones, isShowAll=true);...]]]]]]
+
+
+->handleShowAll() callbacks handleSearch(true);
+
+-> handleSearch(isShowAll=true) takes searchText=value from input and calls 
+loadPhone(searchText, isShowAll=true)
+
+-> loadpPhone() takes data from API using searchText=value and callbacks displayPhones(phones, isShowAll=true) 
+
+-> displayPhones(phones, isShowAll=true) uses phones and runs forEach loop and (for isShowAll=true) shows all data and hides the SHOW-ALL-BUTTON....... 

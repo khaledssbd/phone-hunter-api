@@ -5,53 +5,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunting Phone API</title>
+    <!-- Font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- daisyUI and tailwind script -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* style for font Poppins */
+        .font-poppins {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
 </head>
 
-<body class=" bg-slate-500 min-h-dvh">
+<body class="font-poppins">
     <header>
-        <h2 class="text-6xl text-center font-semibold text-black p-5">Hunting Phone</h2>
+        <div class="flex justify-between mx-[150px] mt-[67px]">
+            <h1 class="text-[#403F3F] text-2xl font-bold">Hot Gadgets</h1>
+            <button class="bg-[#0D6EFD] text-white text-xl font-bold border-0 w-40 h-16 rounded-lg">Sign Up</button>
+        </div>
+        <div class="flex flex-col items-center">
+            <h2 class="text-[#100F0F] text-[65px] font-bold text-center mt-16 mb-6">Apple Iphone 13 Pro Max</h2>
+            <h5 class="text-[#706F6F] text-lg font-normal text-center mb-8">There are many variations of passages of
+                Lorem
+                Ipsum available, but the majority <br> have suffered alteration in some form,
+                by injected humou.</h5>
+            <button class="bg-[#0D6EFD] text-white text-xl font-bold border-0 w-40 h-16 rounded-lg">Buy Now</button>
+        </div>
+        <div class="flex justify-center items-end gap-7 mt-[72px]">
+            <img class="h-[538px] w-[318px]" src="images/pngwing-1.png" alt="">
+            <img class="h-[685px] w-[393px]" src="images/pngwing-2.png" alt="">
+            <img class="h-[538px] w-[318px]" src="images/pngwing-3.png" alt="">
+        </div>
+        <h1 class="text-[#100F0F] text-4xl text-center mt-28 font-semibold">Search your phone</h1>
+
     </header>
     <main class="container mx-auto mt-8">
-        <section class="bg-gray-100 p-4 mx-auto w-[460px] rounded-xl">
-            <input id="search-field" type="text" placeholder="search..." class="input input-bordered w-full max-w-xs" />
-            <button onclick="handleSearch()" class="btn btn-accent ml-3">Search</button>
+        <section class="flex justify-center mb-12">
+            <img class="h-6 w-6 my-auto -mr-10 z-10" src="images/frame.png" alt="">
+            <input id="search-field" type="text" placeholder="Search your phone"
+                class="input-bordered rounded-lg bg-[#100F0F0D] w-[752px] h-16 pl-12" />
+            <button onclick="handleSearch()"
+                class="bg-[#0D6EFD] text-white text-xl font-bold border-0 w-40 h-16 rounded-lg -ml-40">Buy Now</button>
         </section>
-
-
         <!-- search result -->
         <section>
             <!-- spinner or loader -->
             <div id="loading-spinner" class="text-center my-40 hidden">
                 <span class="loading loading-spinner text-primary loading-lg"></span>
             </div>
-            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 bg-slate-500">
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-[180px] my-[50px]">
             </div>
             <!-- show all button -->
-            <div id="show-all-container" class="hidden text-center py-6">
-                <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
+            <div id="show-all-container" class="hidden text-center my-6">
+                <button onclick="handleShowAll()"
+                    class="bg-[#0D6EFD] text-white text-xl font-bold border-0 w-40 h-16 rounded-lg mb-40">Show
+                    All</button>
             </div>
         </section>
 
         <!-- Show Details modal -->
         <!-- Open the modal using ID.showModal() method -->
         <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
-            <form method="dialog" class="modal-box">
-                <h3 id="show-detail-phone-name" class="font-bold text-3xl text-center mb-4"></h3>
-                <div id="show-detail-container" class="flex flex-col items-center">
+            <form method="dialog" class="modal-box w-8/12">
+                <h3 id="show-phone-image"></h3>
+                <div id="show-detail-container" class="flex flex-col gap-2">
 
                 </div>
                 <div class="modal-action">
                     <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
+                    <button
+                        class="bg-[#DC3545] text-white text-xl font-bold border-0 w-32 h-12 rounded-lg">Close</button>
                 </div>
             </form>
         </dialog>
 
     </main>
-    <footer>
+    <footer class="bg-[#0D6EFD0D] px-[150px] py-[120px]">
+        <div class="flex justify-between mb-12">
+            <div>
+                <h1 class="text-[#100F0F] text-5xl font-bold mb-[10px]">Hot Gadgets</h1>
+                <h5 class="text-[#706F6F] text-lg font-semibold">You can definitely work.</h5>
+            </div>
+            <div class="flex items-center gap-7">
+                <div class="flex gap-4">
+                    <img class="h-10 w-10" src="images/f.png" alt="">
+                    <img class="h-10 w-10" src="images/t.png" alt="">
+                    <img class="h-10 w-10" src="images/i.png" alt="">
+                </div>
+                <button class="bg-[#0D6EFD] text-white text-xl font-bold border-0 w-44 h-16 rounded-lg">Join
+                    Premium</button>
+            </div>
+        </div>
+        <hr>
+        <div class="flex justify-between mt-12">
+            <div>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Product</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Browse jobs</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Remote jobs</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Startup jobs</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium">Company jobs</h5>
 
+            </div>
+            <div>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Popular</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">UI/UX Design</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Product Design</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Back-End Developer</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium">Front-End Developer</h5>
+            </div>
+            <div>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Resource</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Faq</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Support</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Privacy Policy</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium">Terms of Service</h5>
+            </div>
+            <div>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Company</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">About Us</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Contact Us</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium mb-4">Career Tips</h5>
+                <h5 class="text-[#403F3F] text-xl font-medium">Careers</h5>
+            </div>
+        </div>
     </footer>
     <script src="js/phone.js"></script>
 </body>

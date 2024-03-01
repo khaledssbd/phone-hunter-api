@@ -32,18 +32,20 @@ const displayPhones = (phones, isShowAll) => {
     // console.log(phone);
     //* 2 create a div
     const phoneCard = document.createElement('div');
-    phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
+    phoneCard.classList = `bg-white rounded-lg border-[1px] border-[#CFCFCF] p-6 mx- h-[633px] w-[364px]`;
     //* 3: set inner html
     phoneCard.innerHTML = `
-        <figure><img src="${phone.image}" alt="Shoes" /></figure>
-        <div class="card-body">
-            <h2 class="card-title">${phone.phone_name}</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-center">
-                <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
-            </div>
-        </div>
-        `;
+    <div class="flex items-center justify-center bg-[#0D6EFD0D] rounded-lg h-[300px] w-[314px] p-4"><img src="${phone.image}" alt="Shoes" />
+    </div>
+    <div class="flex flex-col items-center">
+        <h2 class="text-[#403F3F] text-xl font-bold mt-6 mb-5">${phone.phone_name}</h2>
+        <p class="text-[#706F6F] text-base font-normal">There are many variations of <br> passages of available,
+            but the <br> majority have suffered</p>
+        <h4 class="text-[#403F3F] text-xl font-bold mt-2 mb-4">$999</h4>
+        <button onclick="handleShowDetail('${phone.slug}')"
+            class="bg-[#0D6EFD] rounded-lg h-12 w-40 text-white text-lg font-semibold">Show Details</button>
+
+    </div>`;
     //* 4 append child
     phoneContainer.appendChild(phoneCard);
   });
@@ -96,17 +98,22 @@ const handleShowDetail = async id => {
 
 const showPhoneDetails = phone => {
   //   console.log(phone);
-  const phoneName = document.getElementById('show-detail-phone-name');
-  phoneName.innerText = phone.name;
-
+  const phoneImage = document.getElementById('show-phone-image');
+  phoneImage.innerHTML = `
+  <div class="flex justify-center bg-[#0D6EFD0D] rounded-lg p-6"><img src="${phone.image}" alt="" />
+  </div>
+        `;
   const showDetailContainer = document.getElementById('show-detail-container');
 
   showDetailContainer.innerHTML = `
-        <img src="${phone.image}" alt="" />
-        <div class='mt-4'>
-        <p><span>Storage:</span>${phone?.mainFeatures?.storage}</p>
-        <p><span>GPS:</span>${phone.others?.GPS || 'No GPS available'}</p>
-        <p><span>GPS:</span>${
+        <h3 class="font-bold text-3xl text-center my-3">${phone.name}</h3>
+        <p class="text-[#706F6F] text-base font-normal"><span class="text-[#403F3F] text-base font-semibold">Storage: </span>${
+          phone?.mainFeatures?.storage
+        }</p>
+        <p class="text-[#706F6F] text-base font-normal"><span class="text-[#403F3F] text-base font-semibold">GPS: </span>${
+          phone.others?.GPS || 'No GPS available'
+        }</p>
+        <p class="text-[#706F6F] text-base font-normal"><span class="text-[#403F3F] text-base font-semibold">GPS: </span>${
           phone.others?.GPS
             ? phone.others.GPS
             : 'No GPS available in this device'
